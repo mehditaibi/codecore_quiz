@@ -1,0 +1,26 @@
+{
+  "name": "quiz_1",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "db:drop": "dropdb --if-exists --echo cluckr",
+    "db:create": "createdb --echo cluckr",
+    "db:migrate": "knex migrate:latest",
+    "db:reset": "npm run db:drop && npm run db: create && npm run db:migrate"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.7.1"
+  }
+}
