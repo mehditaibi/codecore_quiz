@@ -6,10 +6,40 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "style" %>
   </head>
 
   <body>
+    <nav class="navbar navbar-transparent bg-transparent">
+        <a class="navbar-brand" href="/">Idea Factory</a>
+        <div>
+          <%= link_to 'Home', root_path %>
+          |
+          <%= link_to 'New Idea', new_idea_path %>
+          |
+          <%= link_to 'Ideas', ideas_path %>
+          |
+          <% if user_signed_in? %>
+          Hello <%= current_user.first_name %>,
+          <%= link_to "Logout", session_path,
+          method: :delete,
+                  data: {confirm: "are you sure you want to log out?"} %>
+          <% else %>
+          <%= link_to "Sign in", new_session_path %>
+          |
+          <%= link_to "Sign up", new_user_path %>
+          <% end %>
+        </div>
+    </nav>
+    <main class='container-fluid'>
+    <% flash.each do |type, message|%>
+      <div class="alert alert-<%= type %>">
+        <%= message %>
+      </div>
+    <% end %>
     <%= yield %>
+    </main>
   </body>
 </html>
