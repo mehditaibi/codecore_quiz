@@ -1,0 +1,66 @@
+<h5><%= @idea.title%></h5>
+<p><%= @idea.description%></p>
+<small>
+    <% if can?(:edit, @idea) %>
+    <%= link_to(
+        "Edit",
+        edit_idea_path(@idea.id)
+    ) %>
+    <% end %>
+
+    <% if can?(:delete, @idea) %>
+    <%= link_to(
+        "Delete",
+        idea_path(@idea.id),
+        method: :delete,
+        data: {
+        confirm: "Are you sure?"
+        }
+    ) %>
+    <% end %>
+</small>
+
+<br>
+<h5>Reviews</h5>
+
+<%= form_with(model: [@idea , @review], local: true) do |f| %>
+  <% if @review.errors.present? %>
+    <p>
+      <%= @review.errors.first_name.join(", ") %>
+    </p>
+  <% end %>
+
+  <div>
+    <%= f.text_area(
+      :body,
+      cols: 50,
+      rows: 5,
+      placeholder: "What are do you think of this idea?"
+    ) %>
+  </div>
+
+  <%= f.submit "Review" %>
+<% end %>
+<br>
+
+<% @reviews.each do |review| %>
+
+    <p>
+    <strong><%= review.user.first_name %> reviewed:</strong> <br>
+    <%= review.body %> <br>
+    <% if can?(:delete, review) %>
+        <small>
+        <%= link_to(
+            "Delete",
+            idea_review_path(@idea.id, review.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" }
+        ) %>
+        </small>
+        •
+    <% end %>
+    <small>reviewed <%= time_ago_in_words(review.created_at) %> ago</small>
+    </p>
+
+<% end %>
+
