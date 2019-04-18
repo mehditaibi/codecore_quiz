@@ -1,0 +1,19 @@
+<%- include('../partials/header') %> 
+
+<div class="new-cluck">
+<form action="/newCluck" method="POST">
+    <div class="form-group">
+        <label for="content" class="font-weight-bold">Content</label>
+        <textarea class="form-control" rows="3" name="content" placeholder="Whatchoo cluckin 'bout?"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl" class="font-weight-bold">Image URL</label>
+        <input type="text" class="form-control" name="image_url" placeholder="https://www.forExample.com">
+    </div>
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <button type="submit" value="Submit" id="new-cluck-button" class="btn btn-outline-secondary font-weight-bold">Cluck!</button>
+    </div>
+</form>
+</div>
+<%- include('../partials/footer') %> 
+

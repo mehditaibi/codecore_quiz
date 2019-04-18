@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+  <% for (let cluck of clucks) { %>
+
+<div class="index-cluck d-flex grey-thick-box ">
+    <div class="mr-2 p-2">
+    <img class="profile-image" src="/images/chicken-profile.jpeg" alt="ChickenProfile">
+    </div>
+    <div class="ml-2 p-2" >
+    <h5 class="font-weight-bold"><%=cluck.username%></h5>
+
+    <p><%=cluck.content%></p>
+    <% if (cluck.imageUrl) {%>
+        <img id="cluck-image" src="<%= cluck.imageUrl %>">
+        <%}%>
+    </div>
+</div>
+  <% } %>
+
+<%- include('../partials/footer') %>

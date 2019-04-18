@@ -1,0 +1,55 @@
+.sign-in-box{
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    color: grey;
+    margin: 20px;
+}
+
+.new-cluck {
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    color: grey;
+    margin: 20px;
+}
+
+.index-cluck {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    color: grey;
+    margin: 20px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 1px;
+}
+
+#cluck-image{
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 3px;
+}
+
+#new-cluck-button {
+    height: 50px;
+    width: 200px;
+    border: 2px solid grey;
+}
+
+.nav-bar-box{
+    border-bottom: 2px solid grey;
+}
+
+#sign-in-cluck-button {
+    height: 40px;
+    width: 150px;
+    border: 2px solid grey;
+}
+
+.grey-thick-box{
+    border: 2px solid grey;
+}
